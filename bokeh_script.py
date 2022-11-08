@@ -77,22 +77,22 @@ def launch_bokeh(current_df, pre_df, post_df, sim_df, combined_frame, lm, minval
         # update current games
         new_c1 = [TableColumn(field=Ci, title=Ci) for Ci in new_current_df.columns]
         d1.columns=new_c1
-        d1.source=ColumnDataSource(new_current_df)
+        d1.source.data = dict(new_current_df)
         d1.height=(new_current_df.shape[0]+1)*30
 
         # update pre games
         new_c2 = [TableColumn(field=Ci, title=Ci) for Ci in new_pre_df.columns]
         d2.columns=new_c2
-        d2.source=ColumnDataSource(new_pre_df)
+        d2.source.data = dict(new_pre_df)
         d2.height=(new_pre_df.shape[0]+1)*30
 
         # update post games
         new_c3 = [TableColumn(field=Ci, title=Ci) for Ci in new_post_df.columns]
         d3.columns=new_c3
-        d3.source=ColumnDataSource(new_post_df)
+        d3.source.data = dict(new_post_df)
         d3.height=(new_post_df.shape[0]+1)*30
 
     button = Button(label="Refresh", width=800)
     button.on_click(partial(update_func,sim_df=sim_df, combined_frame=combined_frame, lm=lm, minval=minval, maxval=maxval))
 
-    curdoc().add_root(Tabs(tabs=[Panel(child=layout([column(button,div0,div1,d1, Spacer(width=0, height=10), div2,d2, Spacer(width=0, height=10), div3,d3)], sizing_mode='fixed'), title="NBA Scoreboard")],sizing_mode='scale_height'))
+    curdoc().add_root(Tabs(tabs=[Panel(child=layout([column(button,div0,div1,d1,Spacer(width=0, height=10),div2,d2,Spacer(width=0, height=10), div3,d3)], sizing_mode='fixed'),title="NBA Scoreboard")],sizing_mode='scale_height'))
