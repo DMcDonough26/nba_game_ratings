@@ -14,7 +14,10 @@ import time
 import datetime
 
 from bokeh.models import ColumnDataSource, Button
-from bokeh.models.widgets import DataTable, TableColumn, Panel, Tabs, Div, Button
+# from bokeh.models.widgets import DataTable, TableColumn, Panel, Tabs, Div, Button
+from bokeh.models.widgets import DataTable, TableColumn, Div, Button
+from bokeh.models.layouts import TabPanel, Tabs
+
 from bokeh.io import output_file, show
 from bokeh.layouts import column, Spacer, layout
 from bokeh.plotting import curdoc
@@ -95,4 +98,4 @@ def launch_bokeh(current_df, pre_df, post_df, sim_df, combined_frame, lm, minval
     button = Button(label="Refresh", width=800)
     button.on_click(partial(update_func,sim_df=sim_df, combined_frame=combined_frame, lm=lm, minval=minval, maxval=maxval))
 
-    curdoc().add_root(Tabs(tabs=[Panel(child=layout([column(button,div0,div1,d1,Spacer(width=0, height=10),div2,d2,Spacer(width=0, height=10), div3,d3)], sizing_mode='fixed'),title="NBA Scoreboard")],sizing_mode='scale_height'))
+    curdoc().add_root(Tabs(tabs=[TabPanel(child=layout([column(button,div0,div1,d1,Spacer(width=0, height=10),div2,d2,Spacer(width=0, height=10), div3,d3)], sizing_mode='fixed'),title="NBA Scoreboard")],sizing_mode='scale_height'))

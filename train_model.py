@@ -13,7 +13,10 @@ import time
 import datetime
 
 from bokeh.models import ColumnDataSource, Button
-from bokeh.models.widgets import DataTable, TableColumn, Panel, Tabs, Div, Button
+# from bokeh.models.widgets import DataTable, TableColumn, Panel, Tabs, Div, Button
+from bokeh.models.widgets import DataTable, TableColumn, Div, Button
+from bokeh.models.layouts import TabPanel, Tabs
+
 from bokeh.io import output_file, show
 from bokeh.layouts import column, Spacer, layout
 from bokeh.plotting import curdoc
@@ -60,7 +63,7 @@ def model_prep(model_df, train_df=None):
 
     # dummy matchups and normalize numeric variables
     if train_df is None:
-        model_df = pd.concat([pd.get_dummies(model_df['Matchup']),model_df[['Minutes','Lead','Min_Lead']]],axis=1)
+        model_df = pd.concat([pd.get_dummies(model_df['Matchup'], dtype=int),model_df[['Minutes','Lead','Min_Lead']]],axis=1)
         for column in ['Minutes','Lead','Min_Lead']:
             model_df[column] = (model_df[column] - model_df[column].mean())/model_df[column].std()
 

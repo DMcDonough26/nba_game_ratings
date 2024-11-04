@@ -13,7 +13,10 @@ import time
 import datetime
 
 from bokeh.models import ColumnDataSource, Button
-from bokeh.models.widgets import DataTable, TableColumn, Panel, Tabs, Div, Button
+# from bokeh.models.widgets import DataTable, TableColumn, Panel, Tabs, Div, Button
+from bokeh.models.widgets import DataTable, TableColumn, Div, Button
+from bokeh.models.layouts import TabPanel, Tabs
+
 from bokeh.io import output_file, show
 from bokeh.layouts import column, Spacer, layout
 from bokeh.plotting import curdoc

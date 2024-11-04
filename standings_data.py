@@ -13,7 +13,10 @@ import time
 import datetime
 
 from bokeh.models import ColumnDataSource, Button
-from bokeh.models.widgets import DataTable, TableColumn, Panel, Tabs, Div, Button
+# from bokeh.models.widgets import DataTable, TableColumn, Panel, Tabs, Div, Button
+from bokeh.models.widgets import DataTable, TableColumn, Div, Button
+from bokeh.models.layouts import TabPanel, Tabs
+
 from bokeh.io import output_file, show
 from bokeh.layouts import column, Spacer, layout
 from bokeh.plotting import curdoc
@@ -22,7 +25,7 @@ from bokeh.plotting import curdoc
 
 # pull standings from basketball reference
 def call_bball_ref():
-    url = "https://www.basketball-reference.com/leagues/NBA_2023_standings.html"
+    url = "https://www.basketball-reference.com/leagues/NBA_2024_standings.html"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
