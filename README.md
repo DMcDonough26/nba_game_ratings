@@ -47,4 +47,4 @@ New ratings predictions are made for the current games on the NBA scoreboard usi
 
 <b>05) Bokeh Script</b>
 
-I put together a script using bokeh server to display current games, upcoming games, and finished games along with a timestamp for when the data was last pulled. There is a refresh button the user can press which will provided updated game scores/ratings.
+I put together a script using bokeh server to display current games, upcoming games, and finished games along with a timestamp for when the data was last pulled. There is a refresh button the user can press which will provide updated game scores/ratings.
